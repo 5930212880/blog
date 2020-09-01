@@ -1,0 +1,28 @@
+<div style="margin: 25px 30px 15px;">
+<p>
+  <h1>Article :
+  "<%= @article.title %>"</h1>
+</p>
+ 
+<p>
+  <%= @article.text %>
+</p>
+
+<a href="<%= article_path(@article, format: "pdf")%>" class="btn btn-primary" target="_blank" > Download PDF</a><p>
+</div> 
+
+<!-- show comment -->
+<%= render 'comments/comment' %>
+
+<!-- show comment box --> 
+<%= render 'comments/form'%>
+
+
+<div style="margin: 25px 30px 15px;">
+  <a href="<%= edit_article_path(@article) %>" class="btn btn-primary" >Edit</a> 
+  <a href="<%= articles_path %>" class="btn btn-primary" >Back</a>
+</div>  
+<p>
+
+
+

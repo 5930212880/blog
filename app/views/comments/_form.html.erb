@@ -1,0 +1,20 @@
+<!-- Comment Box -->
+
+<p><div class="container" style="background-color: #ffb3b3; border-style: groove;">
+
+  <h2>Leave a reply</h2>
+  <%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :commenter , "Name (required)" %><br>
+    <%= form.text_field :commenter  , required: "" , class: "form-control"%>
+  </p>
+  <p>
+    <%= form.label :body , "Comment (required)" %><br>
+    <%= form.text_area :body , required: "" , rows: '8', class: "form-control" %>
+  </p>
+  <p>
+    <%= form.submit "submit" , class: "btn btn-primary" %>
+  </p>
+<% end %>
+
+</div><br>

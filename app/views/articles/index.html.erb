@@ -1,0 +1,56 @@
+<div style="margin: 25px 30px 15px; ">
+<h1 style="color:#ff6666">List Article</h1>
+<a href="<%= new_article_path %>" class="btn btn-primary"> New Article </a>
+<a href="<%= welcome_index_path %>" class="btn btn-primary"> Back</a><p>
+</div>
+<div class="row">
+  <div class="col-lg-7 mx-auto">
+    <div class="card border-0 shadow">
+      <div class="card-body p-5">
+
+     <!-- search form -->
+    <%= simple_form_for :search, url: articles_path, method: "GET" do |f| %>
+        <%= f.input :title, label: false, input_html: {value: ""}  %>   
+        <div style="float: right"><%= f.submit "Search" , class: "btn btn-primary", name: nil %></div>
+    <% end %><br><br>
+
+      <!-- search 
+      <%= form_tag articles_path, method: :get do %>
+        <%= text_field_tag :search, params[:search], placeholder: ".." %>
+        <%= submit_tag ("Search"), name: nil %>
+      <% end %><br> -->
+
+      <!-- show all -->
+    <div class="table-responsive">
+        <table class="table">
+          <thead> 
+            <tr>
+        <th scope="col">Title</th>
+        <th scope="col" colspan=3>Action</th>
+      </tr>
+    </thead>
+
+  <% @articles.each do |article| %>
+    <tbody>
+      <tr>
+        <td><%= article.title %></td>
+        <td>
+          <ul class="list-inline m-0">
+            <li class="servicetable">
+              <%= link_to '<button type="button" class="btn btn-primary btn-sm rounded-0" data-toggle="tooltip" data-placement="top" title="Add"><i class="fa fa-table"></i></button>'.html_safe , article_path(article) %>
+              <%= link_to '<button type="button" class="btn btn-primary btn-sm rounded-0" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>'.html_safe , edit_article_path(article) %>
+              <%= link_to '<button type="button" class="btn btn-primary btn-sm rounded-0" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>'.html_safe , article_path(article),method: :delete, data: { confirm: 'Are you sure?' } %>
+            </li>
+        </td>
+      </tr>
+    </tbody>
+  <% end %>
+  </table>
+            <div style="float: right"><%= link_to "Show All", articles_path , class: "btn btn-primary" %></div>
+  </div> 
+  </div> 
+  </div> 
+  </div> 
+</div>
+
+

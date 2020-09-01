@@ -1,0 +1,22 @@
+<div style="margin: 25px 30px 15px;">
+  <h1 style="color:#ff6666">Edit Comment</h1>
+
+
+  <%= form_for([@article, @comment]) do |form| %>
+  <p>
+    <%= form.label :commenter, "Name", style: "font-size: 20px;" %><br>
+    <%= form.text_field :commenter , class: "form-control" %>
+  </p>
+ 
+  <p>
+    <%= form.label :body , "Comment" , style: "font-size: 20px;" %><br>
+    <%= form.text_area :body , class: "form-control" , rows: '8' %>
+  </p>
+ 
+    <%= form.submit "Update" , class: "btn btn-primary"  %>
+    <%= link_to 'Back', article_path(@article) ,class: "btn btn-primary"  %>
+   
+ 
+<% end %>
+
+</div>

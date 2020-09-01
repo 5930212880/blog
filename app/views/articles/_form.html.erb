@@ -1,0 +1,35 @@
+<div style="margin: 25px 30px 15px; ">
+<h1 style="color:#ff6666">New Article</h1>
+
+  <%= form_with model: @article, local: true do |form| %>
+ 
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@article.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :title , "Article", style: "font-size: 20px;" %><br>
+    <%= form.text_field :title, class: "form-control" ,placeholder: "Enter Article" %>
+  </p>
+ 
+  <p>
+    <%= form.label :text , "Description" , style: "font-size: 20px;" %><br>
+    <%= form.text_area :text , rows: '8', class: "form-control" ,required: ""%>
+  </p>
+ 
+  <p>
+    <%= form.submit "submit" , class: "btn btn-primary" %>
+    <a href="<%= articles_path %>" class="btn btn-primary" >cancel</a>
+  </p>
+ 
+<% end %>
