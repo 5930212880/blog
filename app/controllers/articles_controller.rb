@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-    require 'prawn'
     http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
 
     def new 
@@ -23,7 +22,6 @@ class ArticlesController < ApplicationController
      
     def show
         @article = Article.find(params[:id])
-        @comment = @article.comments.build #show data edit comment
         respond_to do |format|
             format.html
             format.pdf do

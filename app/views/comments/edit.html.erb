@@ -2,7 +2,7 @@
   <h1 style="color:#ff6666">Edit Comment</h1>
 
 
-  <%= form_for([@article, @comment]) do |form| %>
+<%= form_for([@article, @comment]) do |form| %>
   <p>
     <%= form.label :commenter, "Name", style: "font-size: 20px;" %><br>
     <%= form.text_field :commenter , class: "form-control" %>

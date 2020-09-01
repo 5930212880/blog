@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
     # GET /articles/:id/comments/:id/edit
     def edit
       @comment = Comment.find(params[:id])
+      @article = Article.find(params[:article_id])
     end
 
     def destroy

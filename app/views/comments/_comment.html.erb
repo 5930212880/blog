@@ -3,7 +3,9 @@
 <div class="card mb-3" style="margin: 25px 30px 15px;  ">
     <div class="card-header">
       <ul class="list-group list-group-flush">
-      <li class="list-group-item"><h3><%= comment.commenter %></h3></li>
+      <li class="list-group-item"><h3><%= comment.commenter %></h3>
+        <div style="color: grey; font-size: 12px;"><%= comment.created_at %></div>
+      </li>
       <li class="list-group-item"><%= comment.body %>
         <div class="text-right">
           <%= link_to '<button type="button" class="btn btn-primary btn-sm rounded-0" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>'.html_safe , [comment.article, comment],
@@ -17,4 +19,4 @@
   </div>
 </div>
 
-<% end %>    
+<% end %>  
