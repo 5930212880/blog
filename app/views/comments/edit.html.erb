@@ -5,12 +5,12 @@
 <%= form_for([@article, @comment]) do |form| %>
   <p>
     <%= form.label :commenter, "Name", style: "font-size: 20px;" %><br>
-    <%= form.text_field :commenter , class: "form-control" %>
+    <%= form.text_field :commenter , class: "form-control", required: "" %>
   </p>
  
   <p>
     <%= form.label :body , "Comment" , style: "font-size: 20px;" %><br>
-    <%= form.text_area :body , class: "form-control" , rows: '8' %>
+    <%= form.text_area :body , class: "form-control" , rows: '8', required: "" %>
   </p>
  
     <%= form.submit "Update" , class: "btn btn-primary"  %>

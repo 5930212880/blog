@@ -4,7 +4,7 @@
     <div class="card-header">
       <ul class="list-group list-group-flush">
       <li class="list-group-item"><h3><%= comment.commenter %></h3>
-        <div style="color: grey; font-size: 12px;"><%= comment.created_at %></div>
+        <div style="color: grey; font-size: 12px;"><%= comment.created_at.in_time_zone('Asia/Bangkok') %></div>
       </li>
       <li class="list-group-item"><%= comment.body %>
         <div class="text-right">

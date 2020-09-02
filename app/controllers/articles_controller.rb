@@ -65,7 +65,9 @@ class ArticlesController < ApplicationController
         def generate_pdf
             pdf = Prawn::Document.new
             pdf.text "#{@article.title}", size: 30, style: :bold
-            pdf.text "#{@article.text}"
+            pdf.text "last updated : #{@article.updated_at.in_time_zone('Asia/Bangkok')}", color: 'D0D0D0', size: 12
+            pdf.move_down 25 
+            pdf.text "#{@article.text}", size: 20
             send_data pdf.render, filename: "Article_#{@article.title}.pdf",
                                 type: "application/pdf", disposition: "inline"
         end

@@ -2,7 +2,7 @@
 <p>
   <h1>Article :
   "<%= @article.title %>"</h1>
-  <div style="color: grey; font-size: 12px;">last updated : <%= @article.updated_at %></div>
+  <div style="color: grey; font-size: 12px;">last updated : <%= @article.updated_at.in_time_zone('Asia/Bangkok') %></div>
 </p>
  
 <p>

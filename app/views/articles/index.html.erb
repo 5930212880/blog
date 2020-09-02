@@ -33,7 +33,9 @@
   <% @articles.each do |article| %>
     <tbody>
       <tr>
-        <td><%= article.title %></td>
+        <td><%= article.title %>
+         <div style="color: grey; font-size: 12px;">last updated : <%= article.updated_at.in_time_zone('Asia/Bangkok') %></div>
+         </td>
         <td>
           <ul class="list-inline m-0">
             <li class="servicetable">
